@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "RIRA.GRPC.Protos";
+
+message userAddRequest{
+	int32 ID=1;
+	string FirstName = 2;
+	string LastName = 3;
+	string NID = 4;
+	string BirthDate = 5;
+	bool IsActive =6;
+	bool IsDelete = 7;
+	int32 CreatorID=8;
+	string CreationDateTime =9;
+	int32 ModifierID = 10;
+	string ModifierDateTime = 11;
+}
+
+message userAddResponse {
+	int32 ID=1;
+	string Status=2;
+	string Message = 3;
+	string Value = 4;
+}
+
+service UserAdd{
+	rpc add(userAddRequest) returns (userAddResponse);
+}
